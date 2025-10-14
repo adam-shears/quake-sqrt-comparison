@@ -1,0 +1,10 @@
+﻿# Build artifacts
+main.exe
+*.o
+
+# VS Code
+.vscode/
+
+# OS clutter
+.DS_Store
+Thumbs.db
