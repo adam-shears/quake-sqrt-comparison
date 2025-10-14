@@ -8,3 +8,10 @@ main.exe
 # OS clutter
 .DS_Store
 Thumbs.db
+
+.venv/
+
+*.png
+*.csv
+*.exe
+*.out

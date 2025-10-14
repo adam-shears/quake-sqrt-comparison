@@ -1,0 +1,39 @@
+import csv
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = []
+err_quake = []
+err_c = []
+
+with open("errors.csv", "r", encoding="utf-16", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        x.append(float(row["x"].strip()))
+        err_quake.append(float(row["err_quake"].strip()))
+        err_c.append(float(row["err_sqrtf"].strip()))
+
+x = np.array(x)
+err_quake = np.array(err_quake)
+err_c = np.array(err_c)
+
+order = np.argsort(x)
+x = x[order]
+err_quake = err_quake[order]
+err_c = err_c[order]
+
+plt.figure()
+plt.plot(x, err_quake, label="Quake III Q_rsqrt")
+plt.plot(x, err_c, label="C 1.0f/sqrtf(x)")
+plt.xscale("linear")
+plt.yscale("log")
+plt.xlabel("x (floating point input values to the inverse square root)")
+plt.ylabel("Relative error against C's 1.0/sqrt(x) (double precision) (log scale)")
+plt.title(
+    "Comparison of relative error of Quake's implementation of the inverse square root vs C's 1.0f/sqrtf(x)"
+)
+plt.legend()
+plt.tight_layout()
+plt.show()
+plt.savefig("errors.png", dpi=300)
