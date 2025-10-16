@@ -38,10 +38,8 @@ plt.xscale("linear")
 plt.yscale("log")
 plt.xlabel("x (floating point input values to the inverse square root)")
 plt.ylabel("Relative error against C's 1.0/sqrt(x) (double precision) (log scale)")
-plt.title(
-    "Comparison of relative error of Quake's implementation of the inverse square root vs C's 1.0f/sqrtf(x)"
-)
+plt.title("Comparison of relative error of inverse square root approximations")
 plt.legend()
 plt.tight_layout()
-plt.show()
 plt.savefig("errors.png", dpi=300)
+plt.show()
