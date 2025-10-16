@@ -23,6 +23,14 @@ x = x[order]
 err_quake = err_quake[order]
 err_c = err_c[order]
 
+print(
+    f"{'Algorithm':<12}  | {'Max Rel Error':<12} | {'Min Rel Error':<12}\n"
+    f"{'-'*13} | {'-'*13} | {'-'*13}\n"
+    f"{'Quake':<12}  | {np.max(err_quake):^13.2e} | {np.min(err_quake):^13.2e}\n"
+    f"{'-'*13} | {'-'*13} | {'-'*13}\n"
+    f"{'1.0f/sqrtf(x)':<12} | {np.max(err_c):^13.2e} | {np.min(err_c):^13.2e}"
+)
+
 plt.figure()
 plt.plot(x, err_quake, label="Quake III Q_rsqrt")
 plt.plot(x, err_c, label="C 1.0f/sqrtf(x)")

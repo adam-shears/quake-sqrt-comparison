@@ -1,6 +1,7 @@
 #!/usr/bin/env pwsh
 # run.ps1
 
+Write-Host "Started"
 Write-Host "Compiling..."
 gcc ./src/main.c -o sqrt_comp.exe
 
@@ -15,4 +16,4 @@ Write-Host "Running..."
 Write-Host "Plotting..."
 python ./plot.py
 
-Write-Host "✅ Done."
+Write-Host "Process Done."
